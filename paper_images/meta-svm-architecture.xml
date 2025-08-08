@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-08-03T16:00:00.000Z" agent="5.0" version="21.1.2" etag="abc123" type="device">
+  <diagram name="Meta-Learning Ensemble SVM Architecture" id="meta-svm-arch">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Meta-Learning Ensemble SVM Architecture for Network Intrusion Detection" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="600" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Input Dataset -->
+        <mxCell id="dataset" value="NSL-KDD Dataset&lt;br&gt;Training: 125,973 samples&lt;br&gt;Testing: 22,544 samples&lt;br&gt;Features: 41" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="70" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Class Distribution -->
+        <mxCell id="distribution" value="Class Distribution&lt;br&gt;Normal: 53.46%&lt;br&gt;DoS: 36.46%&lt;br&gt;Probe: 9.25%&lt;br&gt;R2L: 0.79%&lt;br&gt;U2R: 0.04%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="750" y="70" width="120" height="90" as="geometry" />
+        </mxCell>
+        
+        <!-- Preprocessing Pipeline -->
+        <mxCell id="preprocessing" value="Data Preprocessing Pipeline" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="170" width="300" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Preprocessing Steps -->
+        <mxCell id="labelenc" value="Label Encoding&lt;br&gt;(protocol_type, service, flag)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="230" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="standardize" value="StandardScaler&lt;br&gt;Normalization&lt;br&gt;(zero mean, unit variance)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="230" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="mapping" value="Class Mapping&lt;br&gt;Normal:0, DoS:1&lt;br&gt;Probe:2, R2L:3, U2R:4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="730" y="230" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Meta-Learning Framework -->
+        <mxCell id="metalearning" value="Meta-Learning Ensemble Framework" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Binary Classifiers Layer -->
+        <mxCell id="binarylayer" value="Specialized Binary Classifiers Layer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="1100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- SVM Classifiers with different kernels -->
+        <mxCell id="rbf1" value="SVM-RBF&lt;br&gt;Class Pair (0,1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="poly1" value="SVM-Poly&lt;br&gt;Class Pair (2,3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="160" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="linear1" value="SVM-Linear&lt;br&gt;Class Pair (1,4)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="260" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dots1" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="360" y="455" width="40" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="minority1" value="Minority-vs-All&lt;br&gt;SVM (R2L)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="420" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="minority2" value="Minority-vs-All&lt;br&gt;SVM (U2R)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="520" y="440" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Class Weighting -->
+        <mxCell id="weighting" value="Adaptive Class Weighting&lt;br&gt;wi = (nclasses × ni/ntotal) × αi&lt;br&gt;α = 25.0 for R2L, U2R&lt;br&gt;α = 1.0 for others" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="430" width="160" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Probabilistic Feature Enhancement -->
+        <mxCell id="probfeatures" value="Probabilistic Feature Enhancement Layer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="530" width="600" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="sigmoid1" value="Sigmoid&lt;br&gt;Confidence&lt;br&gt;Score 1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="220" y="580" width="60" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="sigmoid2" value="Sigmoid&lt;br&gt;Confidence&lt;br&gt;Score 2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="300" y="580" width="60" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dots2" value="..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="595" width="40" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="sigmoidn" value="Sigmoid&lt;br&gt;Confidence&lt;br&gt;Score N" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="440" y="580" width="60" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="metafeatures" value="Meta-Features&lt;br&gt;Enhancement&lt;br&gt;(Original + Probabilistic)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="550" y="580" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Ensemble Configurations -->
+        <mxCell id="ensembles" value="Eight Ensemble Configurations" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="680" width="1100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Individual Ensemble Methods -->
+        <mxCell id="onevone" value="OneVsOne&lt;br&gt;SVM&lt;br&gt;(Baseline)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="70" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pairwise" value="Pairwise&lt;br&gt;Meta SVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="170" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="balanced" value="Balanced&lt;br&gt;Meta SVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="270" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="enhanced" value="Enhanced&lt;br&gt;Meta SVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="370" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="focused" value="Focused&lt;br&gt;Minority SVM&lt;br&gt;(Best: 77.52%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="advanced" value="Advanced&lt;br&gt;Minority SVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="570" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="costsens" value="Cost&lt;br&gt;Sensitive SVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="670" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="hybrid" value="Hybrid&lt;br&gt;Ensemble SVM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="770" y="730" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Ensemble Voting -->
+        <mxCell id="voting" value="Ensemble Voting Mechanism&lt;br&gt;(Weighted Soft Voting)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="830" width="400" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Final Output -->
+        <mxCell id="output" value="Multi-Class Classification Output&lt;br&gt;Classes: Normal, DoS, Probe, R2L, U2R" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="920" width="300" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Performance Metrics -->
+        <mxCell id="metrics" value="Performance Evaluation&lt;br&gt;Accuracy, Precision, Recall, F1-Score&lt;br&gt;Training Time, Memory Usage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1000" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Production Deployment -->
+        <mxCell id="production" value="Production Deployment Considerations&lt;br&gt;• Real-time inference: 5-10ms per sample&lt;br&gt;• Memory requirement: 2.3x baseline (150MB)&lt;br&gt;• SIEM integration via APIs&lt;br&gt;• Confidence scoring for analysts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1100" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Key Results -->
+        <mxCell id="results" value="Key Results&lt;br&gt;• R2L: 0.5% → 10.3% recall (20x improvement)&lt;br&gt;• U2R: 9.0% → 14.9% recall (65% improvement)&lt;br&gt;• Overall accuracy: 77.52% (best)&lt;br&gt;• Training time: 90.6s (fastest)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1100" width="300" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows and Connections -->
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dataset" target="preprocessing">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="preprocessing" target="metalearning">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="metalearning" target="binarylayer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="binarylayer" target="probfeatures">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="probfeatures" target="ensembles">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ensembles" target="voting">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="voting" target="output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="arrow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="output" target="metrics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
